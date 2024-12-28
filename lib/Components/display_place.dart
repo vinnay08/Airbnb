@@ -2,6 +2,9 @@ import 'package:another_carousel_pro/another_carousel_pro.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
+import '../Provider/favorite_provider.dart';
+import '../view/place_details_screen.dart';
+
 class DisplayPlace extends StatefulWidget {
   const DisplayPlace({super.key});
 
@@ -16,6 +19,7 @@ class _DisplayPlaceState extends State<DisplayPlace> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final provider = FavoriteProvider.of(context);
     return StreamBuilder(
         stream: placeCollection.snapshots(),
         builder: (context, streamSnapshot) {
@@ -30,7 +34,14 @@ class _DisplayPlaceState extends State<DisplayPlace> {
                 return Padding(
                   padding: EdgeInsets.symmetric(horizontal: 20),
                   child: GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => PlaceDetailsScreen(
+                                    place: place,
+                                  )));
+                    },
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -88,13 +99,17 @@ class _DisplayPlaceState extends State<DisplayPlace> {
                                         size: 34,
                                         color: Colors.white,
                                       ),
-                                      //
+
                                       InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          provider.toggleFavorite(place);
+                                        },
                                         child: Icon(
                                           Icons.favorite,
                                           size: 30,
-                                          color: Colors.black54,
+                                          color: provider.isExist(place)
+                                              ? Colors.red
+                                              : Colors.black54,
                                         ),
                                       ),
                                     ],

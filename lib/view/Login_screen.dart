@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // import '../Authentication/google_auth.dart';
 // import '../Authentication/google_auth.dart';
+import '../Authentication/google_auth.dart';
 import 'main_screen.dart';
 
 class LoginScreen extends StatefulWidget {

@@ -30,10 +30,11 @@ class _MapCustomInfoState extends State<MapCustomInfo> {
 
   //For Custom marker
   Future<void> _loadmarker() async {
-    Size size = MediaQuery.of(context).size;
     customIcon = await BitmapDescriptor.asset(
         ImageConfiguration(), "assets/images/marker.png",
         height: 40, width: 30);
+
+    Size size = MediaQuery.of(context).size;
 
     placeCollection.snapshots().listen((QuerySnapshot streamSnapshot) {
       if (streamSnapshot.docs.isNotEmpty) {
@@ -53,6 +54,11 @@ class _MapCustomInfoState extends State<MapCustomInfo> {
                   Container(
                     height: size.height * 0.32,
                     width: size.width * 0.8,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    //Design here place details of map
                   ),
                   LatLng(data['latitude'], data['longitude']),
                 );

@@ -1,4 +1,7 @@
 import 'package:airbnb_app/view/explore_screen.dart';
+import 'package:airbnb_app/view/message.dart';
+import 'package:airbnb_app/view/profile_screen.dart';
+import 'package:airbnb_app/view/wishlists.dart';
 import 'package:flutter/material.dart';
 
 class AppMainScreen extends StatefulWidget {
@@ -15,10 +18,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
   void initState() {
     pages = [
       ExploreScreen(),
+      Wishlists(),
       Scaffold(),
-      Scaffold(),
-      Scaffold(),
-      Scaffold(),
+      MessagesScreen(),
+      ProfileScreen(),
     ];
     super.initState();
   }
