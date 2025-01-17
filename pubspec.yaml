@@ -44,7 +44,7 @@ dependencies:
   google_maps_flutter: ^2.10.0
   custom_info_window: ^1.0.1
   provider: ^6.1.2
-  google_sign_in: ^6.2.2  
+  google_sign_in: 
 
 dev_dependencies:
   flutter_test:

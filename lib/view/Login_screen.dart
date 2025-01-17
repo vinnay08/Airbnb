@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // import '../Authentication/google_auth.dart';
 // import '../Authentication/google_auth.dart';
+// import '../Authentication/google_auth.dart';
 import '../Authentication/google_auth.dart';
 import 'main_screen.dart';
 
@@ -115,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       Colors.blue, 30),
                   InkWell(
                     onTap: () async {
-                      // await FirebaseAuthServices().SignInWithGoogle();
+                      await FirebaseAuthServices().SignInWithGoogle();
                       Navigator.push(
                           context,
                           MaterialPageRoute(
